@@ -49,16 +49,16 @@ if(NOT GIT_SHA1)
 endif()
 
 # Meta information about the project
-set(META_PROJECT_NAME        "asap")
-set(META_PROJECT_DESCRIPTION "Instantly start with a fully loaded CMake project")
+set(META_PROJECT_NAME        "asap_p2p")
+set(META_PROJECT_DESCRIPTION "Libraries to implement p2p subsystem using a kademlia DHT")
 set(META_AUTHOR_ORGANIZATION "The Authors")
 set(META_GITHUB_USER         "abdes")
-set(META_GITHUB_REPO         "asap")
-set(META_AUTHOR_DOMAIN       "https://github.com/abdes/asap")
+set(META_GITHUB_REPO         "asap_p2p")
+set(META_AUTHOR_DOMAIN       "https://github.com/abdes/asap_p2p")
 set(META_AUTHOR_MAINTAINER   "Abdessattar Sassi (abde.sassi gmail account)")
 set(META_VERSION_MAJOR       "0")
-set(META_VERSION_MINOR       "10")
-set(META_VERSION_PATCH       "5")
+set(META_VERSION_MINOR       "1")
+set(META_VERSION_PATCH       "0")
 set(META_VERSION_REVISION    "${GIT_REV}")
 set(META_VERSION             "${META_VERSION_MAJOR}.${META_VERSION_MINOR}.${META_VERSION_PATCH}")
 set(META_NAME_VERSION        "${META_PROJECT_NAME} v${META_VERSION} (${META_VERSION_REVISION})")
@@ -262,7 +262,6 @@ endif()
 # ------------------------------------------------------------------------------
 
 add_subdirectory(common)
-add_subdirectory(filesystem)
 
 # For packaging
 add_subdirectory(deploy)
@@ -270,7 +269,7 @@ add_subdirectory(deploy)
 # Setup sphinx doc master target and add other submodules as dependencies
 if(SPHINX_FOUND)
   add_sphinx_target("master")
-  add_dependencies(master_sphinx asap_common_sphinx asap_filesystem_sphinx)
+  add_dependencies(master_sphinx asap_common_sphinx)
 endif()
 
 
